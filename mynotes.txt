@@ -1,0 +1,60 @@
+Tahap Persiapan ;
+
+Download SB Admin 2:
+1. https://startbootstrap.com/theme/sb-admin-2
+Download CodeIgniter 3
+2. https://codeigniter.com/download
+------------------------------------------------------
+
+1. buka file -> config -> autoload, edit 
+------------------------------------------------------
+$autoload['helper'] = array('url');
+
+kemudian pada base url tambahkan base url kita yaitu 
+http://localhost/penggajian/
+
+------------------------------------------------------
+2. Pada folder controllers buat 2 folder untuk admin dan pegawai
+------------------------------------------------------
+3. buat file Dashboard.php di controler/admin
+
+coba buat class dan buat function kemudian echo
+
+jgn lupa untuk tambahkan index.php
+http://localhost/penggajian/index.php/admin/dashboard
+
+
+untuk menghapusnya pertama masuk ke link dibawah ini
+https://www.codeigniter.com/user_guide/general/urls.html?highlight=htaccess
+
+setelah itu buat file dengan nama .htaccess (pastikan filenya sejajar dengan folder aplikasi)
+dengan isi filenya :
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+save, setelah itu coba akses http://localhost/penggajian/admin/dashboard akan langsung bisa tanpa menggunakan index.php
+
+------------------------------------------------------
+4. Buka Folder sudah sudah kita download di tahap persiapan yaitu SB Admin 2, buka index.html
+
+D:\CI 3\startbootstrap-sb-admin-2-gh-pages\startbootstrap-sb-admin-2-gh-pages
+
+5. Buat Folder Assets sejajar dengan aplikasi
+
+6. Copy semua asset (css, img, js, scss, vendor) yg ada di folder tersebut kemudian paste di 
+
+C:\xampp\htdocs\penggajian\assets
+
+7. pada funtion index di controller dashboard.php
+$this->load->view('admin/dashboard');
+
+
+8. pada folder view buat folder admin, kemudian buat file dashboard
+
+9. setelah langkah no.4, klik kanan view source page, copy semua ke nomer 8
+
+10. pada kanan bawah pastikan extension PHP bukan HTML, kemudian load assest
+
